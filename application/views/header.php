@@ -19,11 +19,11 @@ $_hmtPixel = $_hmt->trackPageView();
 	  s.parentNode.insertBefore(hm, s);
 	})();
 	</script>
-
+<script src="<?echo base_url()?>js/jquery-2.1.0.js"></script>
+<script src="<?echo base_url()?>js/main.js"></script>
 </head>
-<script src="../../js/jquery-2.1.0.js"></script>
 
-<body id = "body" onload = "load()">
+<body id = "body">
 <img src="<?php echo $_hmtPixel; ?>" width="0" height="0" />
 <div class = "body_content">
   <div class ="header">

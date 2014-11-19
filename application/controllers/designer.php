@@ -72,17 +72,37 @@ class Designer extends CI_Controller {
 	
 	//查看个人信息
 	public function loadInfo($id = 0){
-	
+		$this->loadHeader();
 		if($id == 0){
 			$data['success'] = 5;
 			$this->load->view("designer/message",$data);
 		}
-		$this->loadHeader();
 		$this->load->model("des_model","des");
+		//读取设计师个人信息
 		$result = $this->des->getInfoById($id);
 		$result['image'] = $this->getUrlByKey($result['image']);
 		$data['info'] = $result;
-		$this->load->view("designer/detail",$data);
+		//读取设计师加入的项目
+		$ownProj = $this->des->getOwnProjects($id);
+		for($i=0;$i<count($ownProj);$i++){
+			$ownProj[$i]['image'] = $this->getUrlByKey($ownProj[$i]['image']);
+		}
+		$data['pre_proj'] = $ownProj;
+		//读取设计师加入的工作坊
+		$ownWkshop = $this->des->getOwnWorkShops($id);
+		for($i=0;$i<count($ownWkshop);$i++){
+			$ownWkshop[$i]['image'] = $this->getUrlByKey($ownWkshop[$i]['image']);
+			$ownWkshop[$i]['large_image'] = $this->getUrlByKey($ownWkshop[$i]['large_image']);
+		}
+		$data['workshops'] = $ownWkshop;
+		//读取设计师加入的训练营
+		$ownTraincamp = $this->des->getOwnTrainCamps($id);
+		for($i=0;$i<count($ownTraincamp);$i++){
+			$ownTraincamp[$i]['image'] = $this->getUrlByKey($ownTraincamp[$i]['image']);
+			$ownTraincamp[$i]['large_image'] = $this->getUrlByKey($ownTraincamp[$i]['large_image']);
+		}
+		$data['traincamps'] = $ownTraincamp;
+		$this->load->view("designer/details",$data);
 		$this->loadFooter();
 		
 	}
@@ -357,6 +377,8 @@ class Designer extends CI_Controller {
 		return $imageUrl;
 		
 	}
+
+	
 	
 	
 }

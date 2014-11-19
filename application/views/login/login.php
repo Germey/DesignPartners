@@ -12,10 +12,11 @@
 	<div class = "title"><b>登&nbsp;&nbsp;&nbsp;录</b></div>
 	<div class = "container">
 		<form  action="<?php echo site_url()?>/login/log" method="post">
-			<div class = "des"></div><input type="text" id="email" name="email" value="" placeholder="邮箱"/><div class = "illegal" id="email_illegal" hidden="true">邮箱不合法</div><div class = "legal" id="email_legal" hidden="true">邮箱可登录</div ><div class = "illegal" id="email_not_exist" hidden="true">邮箱不存在</div ><div class = "clear"></div>
-			<div class = "des"></div><input type="password" id="password" name="password" placeholder="密码" /><div class = "illegal" id="password_illegal"hidden="true">密码不足六位</div><div class = "illegal" id="password_wrong" <?php if($wrong!=1){ echo "hidden = 'true'";}?>>密码错误</div><div class = "legal" id="password_legal"hidden="true">密码长度合理</div><div class = "clear"></div>
+			<div class = "des"></div><input type="text" id="email" name="email" value="" placeholder="邮箱"/><div class = "illegal" id="email_illegal" hidden="true"><img class = "wrong" src="../../images/wrong.png"/>请输入正确的邮箱</div><div class = "legal" id="email_legal" hidden="true"><img class = "right" src="../../images/right.png"/></div ><div class = "illegal" id="email_not_exist" hidden="true"><img class = "wrong" src="../../images/wrong.png"/>邮箱不存在</div><div class = "clear"></div>
+			<div class = "des"></div><input type="password" id="password" name="password" placeholder="密码" /><div class = "illegal" id="password_illegal"hidden="true"><img class = "wrong" src="../../images/wrong.png"/>密码不足六位</div><div class = "illegal" id="password_wrong" <?php if($wrong!=1){ echo "hidden = 'true'";}?>><img class = "wrong" src="../../images/wrong.png"/>密码错误</div><div class = "legal" id="password_legal"hidden="true"><img class = "right" src="../../images/right.png"/></div><div class = "clear"></div>
+			<input type='checkbox' name='check' id = "check" value=1 /><div class = "tt">下次自动登录</div><div class = "forget">忘记密码？</div><div class = "clear"></div>
 			<input type="button" name="sub" id="sub" value="登录"/>
-			<div class = "reg_link"><a href = "<?php echo site_url();?>/register/loadRegister">创建账号</a></div>
+			<div class = "reg_link">没有账号？<a href = "<?php echo site_url();?>/register/loadRegister">注册</a></div>
 			
 		</form>
 	</div>

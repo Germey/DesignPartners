@@ -10,7 +10,8 @@
 		?>
 			恭喜您登录成功。
 			<script language="javascript" type="text/javascript"> 
-			history.go(-1);
+			// 以下方式定时跳转
+			setTimeout("javascript:location.href='<?php echo site_url();?>'",100); 
 			</script>
 		<?php
 		}else if($success==2){

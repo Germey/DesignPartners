@@ -122,5 +122,20 @@
 			$bool = $this->db->query($sql);
 			return $bool;
 		}
+		public function getOwnProjects($id){
+			$sql = "select * from proj_designer a,project b where a.project_id = b.id and a.designer_id = ".$id;
+			$result = $this->db->query($sql);
+			return $result->result_array();
+		}
+		public function getOwnWorkShops($id){
+			$sql = "select * from workshop a,workshop_designer b where a.type = 0 and a.id = b.workshop_id and b.designer_id = ".$id;
+			$result = $this->db->query($sql);
+			return $result->result_array();
+		}
+		public function getOwnTrainCamps($id){
+			$sql = "select * from workshop a,workshop_designer b where a.type = 1 and a.id = b.workshop_id and b.designer_id = ".$id;
+			$result = $this->db->query($sql);
+			return $result->result_array();
+		}
 		
 	}
