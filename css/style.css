@@ -8,6 +8,7 @@
 }
 a{
 	text-decoration:none;
+	color: #333;
 }
 .body_content{
 	width: 100%;
@@ -1599,6 +1600,13 @@ a{
 	background-image:url('../images/designer_bg.png'); 
 	height: 481px;
 	background-size: cover;
+}
+.personal_details .change-info {
+	text-align: center;
+}
+.personal_details .change-info a {
+	color: #FFF;
+	font-size: 13px;
 }
 .personal_details .brief .container{
 	width:700px;

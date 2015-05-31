@@ -5,7 +5,8 @@
 				<img src = "<?php echo $info['image'];?>" width="130" height="130"></img>
 			</div>
 			<div class = "name"><?php echo $info['name'];?></div>
-			<div class = "status">0积分 0粉丝 0关注&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;个人标签：交互设计 工业设计 商业模式</div>
+			<?php if ($info['id']==$_SESSION['id']) { ?><div class = "change-info"><a href="<?php echo site_url()?>/designer/changeInfo/<?php echo $_SESSION['id'];?>">修改信息</a></div><?php } ?>
+			<div class = "status"></div>
 			<div class = "line"></div>
 			<div class = "mess">
 				<?php if(strlen($info['brief'])==0){
@@ -16,14 +17,6 @@
 					echo $brief;
 				}
 				?>
-			</div>
-			<div class = "attention">
-				<div class = "add_attention">
-					+关注
-				</div>
-				<div class = "leave_msg">
-					&nbsp;留言&nbsp;
-				</div>
 			</div>
 		</div>
 	</div>
